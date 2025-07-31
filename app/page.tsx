@@ -1,14 +1,16 @@
 import { NextPage } from "next";
-import { Button } from "@/components/ui/button";
+import Hero from "@/components/home/Hero";
+import FeaturedProducts from "@/components/home/FeaturedProducts";
+import { Suspense } from "react";
+import LoadingContainer from "@/components/global/LoadingContainer";
 
 const HomePage: NextPage = () => {
   return (
-    <div>
-      <h1 className="text-3xl">Home Page</h1>
-      <Button variant="outline" size="lg" className="m-8 capitalize">
-        Click me
-      </Button>
-    </div>
+    <>
+      <Hero />
+      <Suspense fallback={<LoadingContainer />}></Suspense>
+      <FeaturedProducts />
+    </>
   );
 };
 
